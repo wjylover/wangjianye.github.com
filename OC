@@ -1,0 +1,65 @@
+Person.h
+
+#import <Foundation/Foundation.h>
+//接口文件 类名 :父类名
+@interface Person : NSObject{
+    //类的特征
+    @public
+    NSString *_name;
+    NSString *_gender;
+    int _age;
+}
+//+类方法 用类名调用
++(void)sayHi;
+//- 实例方法只能用实例调用
+//行为:
+-(void)eat;//吃饭
+-(void)sleep;//睡觉
+-(void)playDoug;//打豆豆
+@end
+
+Person.m
+
+#import "Person.h"
+
+@implementation Person
++(void)sayHi{
+    NSLog(@"hello\n");
+}
+
+
+-(void)eat{//吃饭
+    NSLog(@"我饿了\n");
+}
+-(void)sleep;{//睡觉
+    NSLog(@"吃完饭我就困了\n");
+}
+-(void)playDoug;{//打豆豆
+    NSLog(@"睡醒了打豆豆\n");
+}
+@end
+
+main.m
+
+
+#import <Foundation/Foundation.h>
+#import "Person.h"
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        // insert code here...
+        NSLog(@"你好\n");
+        //初始化
+        Person *pes1 = [[Person alloc] init];
+        [pes1 eat];
+        [pes1 sleep];
+        [pes1 playDoug];//实例方法只能实例调用
+        [Person sayHi];//类方法职能类调用
+        return 0;
+}
+
+
+
+
+
+
